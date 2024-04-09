@@ -20,6 +20,10 @@ function updateBatteryStatus(battery) {
   } else {
     chargeStatus.textContent = "Discharging...";
   }
+  if (batteryImage != null) {
+    batteryImage.src = `https://robohash.org/${battery.level}percent.png`;
+  }
+
   // STEP 3c: Update the charge level
   chargeLevel.textContent = battery.level * 100 + "%";
   chargeMeter.value = battery.level * 100;
@@ -43,8 +47,6 @@ navigator.getBattery().then((battery) => {
   });
 });
 
-if(batteryImage != null){
-    batteryImage.src = `https://robohash.org/${battery.level}percent.png`;
-}
+batteryImage = document.getElementById("batteryImage");
 
 /* This script adapted from the excellent code examples found at https://www.w3.org/TR/battery-status/#examples and https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API */
