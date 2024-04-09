@@ -43,14 +43,8 @@ navigator.getBattery().then((battery) => {
   });
 });
 
-function displayRobotImage(batteryLevel) {
-  const imageUrl = `https://robohash.org/${battery.level}percent.png`;
-  const imgElement = document.getElementById("batteryImage");
-  if (imgElement) {
-    imgElement.src = imageUrl;
-  } else {
-    console.log("Battery image element not found");
-  }
+if (batteryImage != null) {
+    batteryImage.src  = `https://robohash.org/${battery.level}percent.png`;
 }
 
 /* This script adapted from the excellent code examples found at https://www.w3.org/TR/battery-status/#examples and https://developer.mozilla.org/en-US/docs/Web/API/Battery_Status_API */
